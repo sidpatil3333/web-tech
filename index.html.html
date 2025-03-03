@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Bio Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://t4.ftcdn.net/jpg/01/10/62/63/360_F_110626357_7K92hEJRtIg5lHjjpIoa0rju1Ijbybjv.jpg);
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120vh;
+            margin: 0;
+        }
+
+        .bio-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        .bio-container img {
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+        .bio-container h2 {
+            color: #333;
+        }
+        .bio-container p {
+            color: darkred;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color:green ;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bio-container">
+   <b> <h2>Personal Bio</h2></b>
+    <div id="bioDetails">
+        <p id="bioName">Name: Not Provided </p>
+        <p id="bioProfession">Profession: Not Provided</p>
+        <img id="bioPhoto" src="" alt="Profile Photo">
+    </div>
+    <button onclick="collectBioInfo()">Update Bio</button>
+</div>
+
+<script>
+    function collectBioInfo() {
+        let name = prompt("Enter your name:");
+        let profession = prompt("Enter your profession:");
+        let photoUrl = prompt("Enter the URL of your profile photo:");
+
+        if (!name || !profession || !photoUrl) {
+            alert("All fields are required. Please try again.");
+            return;
+        }
+
+        alert(`Name: ${name}\nProfession: ${profession}\nProfile Photo URL: ${photoUrl}`);
+
+        console.log("User's Bio Information:");
+        console.log("Name:", name);
+        console.log("Profession:", profession);
+        console.log("Profile Photo URL:", photoUrl);
+
+        document.getElementById('bioName').innerText = `Name: ${name}`;
+        document.getElementById('bioProfession').innerText = `Profession: ${profession}`;
+        document.getElementById('bioPhoto').src = photoUrl;
+        document.getElementById('bioPhoto').alt = `${name}'s Profile Photo`;
+
+        document.querySelector('button').innerText = "Update Bio Again";
+    }
+</script>
+
+</body>
+</html>
